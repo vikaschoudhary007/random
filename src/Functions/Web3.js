@@ -11,8 +11,8 @@ import loader2 from '../images/loader2.png';
 const db = firebaseinit.database().ref('Binance');
 const userdb = firebaseinit.database().ref('Binance/Users');
 
-const TokenContractAddress = '0x806DF860d890C41E11594EB308320e4C91BbBBB3';
-const GuessContractAddress = '0x4C12891380aA597b010697213042C8960Bd947D9';
+const TokenContractAddress = '0xA87405088e0F7F0Af0E2E57C1a095B6453271Ce4';
+const GuessContractAddress = '0xF1DB13CCd885D257863F60Cedf83FfAD8E86B8c0';
 const adminPublicKey = '0x435a4787Af28293934161F5e22f4F7368B10D2Af';
 
 /////////// CHECK IF BROWSER IS ENABLED WITH Web3 //////////////
@@ -646,6 +646,34 @@ const chooseNumbers = async (
   setCheckboxId
 ) => {
   try {
+    const result = await guessContract.methods
+      .isRandomNumberGenerated()
+      .call({ from: account });
+
+    if (result === true) {
+      Swal.fire({
+        width: 400,
+        background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+
+        title: `<span style='color:white'>Random number is generated...can't select now</span>`,
+        showConfirmButton: true,
+        showCloseButton: false,
+        confirmButtonText: 'Close',
+
+        customClass: {
+          confirmButton: 'swal-button',
+        },
+        buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
+      });
+      setSelectedGuesses([]);
+      setCheckboxId(new Map());
+
+      return;
+    }
+
     await guessContract.methods
       .chooseNumbers(dataArray)
       .send({ from: account })
@@ -1422,12 +1450,6 @@ const lastRandomNumber = async (
   await setCheckRandomNumber(checkRandomNumber);
 };
 
-const isRandomNumberGenerated = async (guessContract, account) => {
-  const result = await guessContract.methods
-    .isRandomNumberGenerated()
-    .call({ from: account });
-};
-
 const pushWinnerNumber = async (
   winnerNumber,
   date,
@@ -1637,6 +1659,5 @@ export {
   lastRandomNumber,
   pushWinnerNumber,
   editWinnerNumber,
-  isRandomNumberGenerated,
   staggeredUnstake,
 };

@@ -29,22 +29,54 @@ export default function StaggeredModal({}) {
     const getDataFromFirebase = async () => {
       try {
         setLoading(true);
+        var temp1, temp2;
         await db
           .child('Users')
           .child(account)
           .on('value', async (snapshot) => {
-            const temp = snapshot.val().SelectedArray;
+            temp1 = snapshot.val();
 
-            if (temp === null) {
+            if (temp1 === null) {
               setNumArray([]);
-              return;
+              await db
+                .child('Users')
+                .child(account)
+                .update({ SelectedArray: [-1] })
+                .then(async () => {
+                  await db
+                    .child('Users')
+                    .child(account)
+                    .on('value', async (snapshot) => {
+                      temp2 = snapshot.val().SelectedArray;
+                    });
+                });
             }
-            if (temp === undefined) {
+            if (temp1 === undefined) {
               setNumArray([]);
-              return;
+              await db
+                .child('Users')
+                .child(account)
+                .update({ SelectedArray: [-1] })
+                .then(async () => {
+                  await db
+                    .child('Users')
+                    .child(account)
+                    .on('value', async (snapshot) => {
+                      temp2 = snapshot.val().SelectedArray;
+                    });
+                });
             }
 
-            setNumArray(temp);
+            await db
+              .child('Users')
+              .child(account)
+              .on('value', async (snapshot) => {
+                console.log(snapshot.val());
+                temp2 = snapshot.val().SelectedArray;
+              });
+
+            console.log('temp2', temp2);
+            setNumArray(temp2);
           });
         setLoading(false);
       } catch (err) {
@@ -53,35 +85,60 @@ export default function StaggeredModal({}) {
     };
 
     getDataFromFirebase();
-
-    // function range(start, end) {
-    //   return Array(end - start + 1)
-    //     .fill()
-    //     .map((_, idx) => start + idx);
-    // }
-    // var result = range(1, 158);
-    // setNumArray(result);
   }, []);
 
   useEffect(() => {
     const getDataFromFirebase = async () => {
       try {
         setLoading(true);
+        var temp1, temp2;
         await db
           .child('Users')
           .child(account)
           .on('value', async (snapshot) => {
-            const temp = snapshot.val().SelectedArray;
-            if (temp === null) {
-              setNumArray([]);
-              return;
+            temp1 = snapshot.val();
+
+            if (temp1 === null) {
+              await db
+                .child('Users')
+                .child(account)
+                .update({ SelectedArray: [-1] })
+                .then(async () => {
+                  await db
+                    .child('Users')
+                    .child(account)
+                    .on('value', async (snapshot) => {
+                      console.log(snapshot.val());
+                      temp2 = snapshot.val().SelectedArray;
+                    });
+                });
+            }
+            if (temp1 === undefined) {
+              await db
+                .child('Users')
+                .child(account)
+                .update({ SelectedArray: [-1] })
+                .then(async () => {
+                  await db
+                    .child('Users')
+                    .child(account)
+                    .on('value', async (snapshot) => {
+                      console.log(snapshot.val());
+                      temp2 = snapshot.val().SelectedArray;
+                    });
+                });
             }
 
-            if (temp === undefined) {
-              setNumArray([]);
-              return;
-            }
-            setNumArray(temp);
+            await db
+              .child('Users')
+              .child(account)
+              .on('value', async (snapshot) => {
+                console.log(snapshot.val());
+                temp2 = snapshot.val().SelectedArray;
+              });
+
+            console.log('temp2', temp2);
+            setNumArray(temp2);
           });
         setLoading(false);
       } catch (err) {
@@ -90,14 +147,6 @@ export default function StaggeredModal({}) {
     };
 
     getDataFromFirebase();
-
-    // function range(start, end) {
-    //   return Array(end - start + 1)
-    //     .fill()
-    //     .map((_, idx) => start + idx);
-    // }
-    // var result = range(1, 158);
-    // setNumArray(result);
   }, [account]);
 
   const handleClose = () => {
