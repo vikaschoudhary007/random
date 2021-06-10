@@ -122,7 +122,7 @@ export default function Main() {
           <div className="row">
             <div className="col-lg-9 col-md-8 pr-md-0">
               <div className="f13-700 text-yellow text-uppercase pb-2">
-                Transaction History
+                {/* Transaction History */}
               </div>
 
               <div className="scrollBox2">
@@ -151,10 +151,10 @@ export default function Main() {
             </div>
             <div className="col-lg-3 col-md-4 pr-">
               <div className="f13-700 text-yellow text-uppercase pb-2">
-                Numbers
+                {/* Numbers */}
               </div>
               <div className="box2 h-370">
-                <div className="f14-700">Chosen Numbers</div>
+                <div className="f14-700">Current Picks</div>
                 <div className="f24-600 text-yellow pb-xl-5 pb-3">
                   {selectedGuesses.map((data, key) => {
                     if (key === selectedGuesses.length - 1) {
@@ -192,13 +192,13 @@ export default function Main() {
                 </span>
               </div>
               <div className="box2 h-auto">
-                <div className="f14-700">Available Balance to Choose</div>
+                <div className="f14-700">Remaining Picks</div>
                 <div className="f24-600 text-yellow ">
                   {userData.remainingNumbersToSet}
                 </div>
               </div>
               <div className="box2 h-auto">
-                <div className="f14-700">Total Limit</div>
+                <div className="f14-700">Total Picks</div>
                 <div className="f24-600 text-yellow ">
                   {userData.maxNumberUserCanSelect}
                 </div>

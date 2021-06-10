@@ -8,64 +8,42 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    // <div>
-    //   <footer>
-    //     <div className="container">
-    //       <div className="row align-items-center">
-    //         <div className="col-lg-3">
-    //           <Link className="footer_logo" to="/">
-    //             <img src={logo} alt="logo" />
-    //           </Link>
-    //         </div>
-    //         <div className="col-lg-9 d-flex flex-wrap align-items-center justify-content-lg-end">
-    //           <a className="social" href="#" target="_blank">
-    //             <img src={telegram} alt="Telegram" />
-    //             Telegram Discussion
-    //           </a>
-    //           <a className="social" href="#" target="_blank">
-    //             <img src={medium} alt="Medium" />
-    //             Medium
-    //           </a>
-    //           <a className="social" href="#" target="_blank">
-    //             <img src={twitter} alt="Twitter" />
-    //             Twitter
-    //           </a>
-    //           <a className="social" href="#" target="_blank">
-    //             <img src={versions} alt="Dot Coin" />
-    //             Dot Coin
-    //           </a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </footer>
-    // </div>
     <>
       <footer>
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-4">
-              <Link className="footer_logo" to="/">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-4">
+              <a class="footer_logo" href="index.html">
                 <img src={logo} alt="logo" />
-              </Link>
-              <p className="copy">© 2021 Random Defi. All rights reserved.</p>
+              </a>
+              <p class="copy">© 2021 Random Defi. All rights reserved.</p>
             </div>
-            <div className="col-lg-8 d-flex flex-wrap align-items-center justify-content-lg-end">
-              <a className="social" href="#" target="_blank">
+            <div class="col-lg-8 d-flex flex-wrap align-items-center justify-content-lg-end">
+              <a class="social" href="https://t.me/RandomDeFi" target="_blank">
                 <img src={telegram} alt="Telegram" />
-                Telegram Discussion
+                Telegram Chat
               </a>
-              <a className="social" href="#" target="_blank">
-                <img src={medium} alt="Medium" />
-                Medium
+              <a
+                class="social"
+                href="https://t.me/RandomDeFiNews"
+                target="_blank"
+              >
+                <img src={telegram} alt="Telegram" />
+                Telegram News
               </a>
-              <a className="social" href="#" target="_blank">
+
+              {/* <a class="social" href="#" target="_blank"><img src="images/medium.png"
+                                alt="Medium" />Medium</a>  */}
+              <a
+                class="social"
+                href="Https://twitter.com/RandomDeFi"
+                target="_blank"
+              >
                 <img src={twitter} alt="Twitter" />
                 Twitter
               </a>
-              <a className="social" href="#" target="_blank">
-                <img src={versions} alt="Dot Coin" />
-                Dot Coin
-              </a>
+              {/* <a class="social" href="#" target="_blank"><img src="images/versions.png" alt="Dot Coin" />Dot
+                            Coin</a> */}
             </div>
           </div>
         </div>

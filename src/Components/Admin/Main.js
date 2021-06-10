@@ -297,7 +297,7 @@ export default function Main() {
             </div>
             <div className="col-lg-6 pl-lg-0">
               <div className="f13-700 text-yellow text-uppercase pb-2">
-                Last Winning Numbers
+                Recent Winners
               </div>
               <div className="scrollBox">
                 <table className="table table-hover">

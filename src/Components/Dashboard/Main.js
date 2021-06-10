@@ -13,6 +13,7 @@ import {
 } from '../../Functions/Web3';
 import ApproveModal from './ApproveModal';
 import StakeModal from './StakeModal';
+import StaggeredModal from './StaggeredModal';
 
 const database = firebaseinit.database().ref('Binance');
 const db = firebaseinit.database().ref('Binance/Users');
@@ -172,7 +173,7 @@ export default function Main() {
                 />
               </div>
               <div className="box2">
-                <div className="f14-700">Current Stake</div>
+                <div className="f14-700">Currently Staked</div>
                 <div className="f24-600 text-yellow pb-xl-5 pb-3">
                   {parseFloat(userData.checkStakingBalance.toString()).toFixed(
                     2
@@ -191,7 +192,7 @@ export default function Main() {
                 <div className="f14-700">Unstake</div>
                 <div className="f24-600 text-yellow pb-xl-5 pb-3"></div>
                 <a
-                  className="link"
+                  className="link link1"
                   style={{
                     background: 'white',
                     border: 'none',
@@ -207,6 +208,7 @@ export default function Main() {
                   />
                   <span className="unstake">Unstake</span>
                 </a>
+                <StaggeredModal />
               </div>
               <div className="box2">
                 <div className="f14-700">Running $RAND in Pool</div>
@@ -224,8 +226,8 @@ export default function Main() {
                   <thead>
                     <tr>
                       <th>Date</th>
-                      <th>Chosen Numbers</th>
-                      <th>Staked/Approved</th>
+                      <th>Your Numbers</th>
+                      <th>Total</th>
                       <th>Transaction Type</th>
                     </tr>
                   </thead>
@@ -235,7 +237,7 @@ export default function Main() {
             </div>
             <div className="col-xl-4 pl-xl-0 col-lg-12 col-md-12">
               <div className="f13-700 text-yellow text-uppercase pb-2">
-                Last Winning Numbers
+                Recent Winners
               </div>
               <div className="scrollBox">
                 <table className="table table-hover">

@@ -62,7 +62,9 @@ export default function EditModal({
           </Modal.Header>
           <Modal.Body>
             <form>
-              <div className="f24-600">How much do you want to approve?</div>
+              <div className="f24-600">
+                How much RAND would you like to approve?
+              </div>
               <div className="form-group my-4">
                 <label className="text-yellow text-uppercase f14-700">
                   Approve

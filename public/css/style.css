@@ -156,7 +156,7 @@ header.header.fixed .navbar-brand img {
 }
 
 .navbar-nav li.nav-item {
-  margin: 0 0 0 20px;
+  margin: 0 0 0 10px;
 }
 
 .navbar-nav li.nav-item .nav-link {
@@ -349,7 +349,7 @@ button:focus {
   position: absolute;
   top: 0;
   left: 0;
-  background: url('./../images/left.png') no-repeat scroll 0 0/100%;
+  background: url('../images/left.png') no-repeat scroll 0 0/100%;
 }
 
 #Introduction::after {
@@ -360,12 +360,11 @@ button:focus {
   position: absolute;
   top: 0;
   right: 0;
-  background: url('./../images/right.png') no-repeat scroll 0 0/100%;
+  background: url('../images/right.png') no-repeat scroll 0 0/100%;
 }
 
 .blur_bg {
-  background: url('./../images/bg-blur.svg') no-repeat scroll center
-    center/cover;
+  background: url('../images/bg-blur.svg') no-repeat scroll center center/cover;
   position: absolute;
   left: 0%;
   top: 0;
@@ -773,7 +772,7 @@ button.btn-gr.btn-sm {
   width: 244px;
   height: 594px;
   display: block;
-  background: url('./../images/mask1.svg') no-repeat scroll 0 0/100%;
+  background: url('../images/mask1.svg') no-repeat scroll 0 0/100%;
   position: absolute;
   left: 0;
   top: 15%;
@@ -784,7 +783,7 @@ button.btn-gr.btn-sm {
   width: 344px;
   height: 551px;
   display: block;
-  background: url('./../images/mask2.svg') no-repeat scroll 0 0/100%;
+  background: url('../images/mask2.svg') no-repeat scroll 0 0/100%;
   position: absolute;
   right: 0;
   bottom: 10%;
@@ -796,7 +795,7 @@ button.btn-gr.btn-sm {
 
 .blackBox {
   background: #021736;
-  padding: 10% 10% 10% 0;
+  padding: 20% 10% 20% 0;
   position: relative;
 }
 
@@ -933,6 +932,11 @@ button.btn-gr.btn-sm {
   padding: 150px 15px 150px 100px;
 }
 
+.sec_5 .blueBox {
+  position: relative;
+  padding: 10% 10% 10% 0;
+}
+
 .sec_5 .blueBox:before {
   content: '';
   width: 200%;
@@ -946,11 +950,6 @@ button.btn-gr.btn-sm {
   z-index: -1;
 }
 
-.sec_5 .blueBox {
-  position: relative;
-  padding: 10% 10% 10% 0;
-}
-
 .sec_6 {
   background: #00284e;
   padding: 100px 0;
@@ -962,7 +961,7 @@ button.btn-gr.btn-sm {
   width: 76px;
   height: 380px;
   display: block;
-  background: url('./../images/mask3.svg') no-repeat scroll 0 0/100%;
+  background: url('../images/mask3.svg') no-repeat scroll 0 0/100%;
   position: absolute;
   left: 0;
   top: 10%;
@@ -973,7 +972,7 @@ button.btn-gr.btn-sm {
   width: 76px;
   height: 380px;
   display: block;
-  background: url('./../images/mask4.svg') no-repeat scroll 0 0/100%;
+  background: url('../images/mask4.svg') no-repeat scroll 0 0/100%;
   position: absolute;
   right: 0;
   bottom: 10%;
@@ -1002,7 +1001,7 @@ button.btn-gr.btn-sm {
   width: 497px;
   height: 497px;
   display: block;
-  background: url('./../images/mask5.png') no-repeat scroll 0 0/100%;
+  background: url('../images/mask5.png') no-repeat scroll 0 0/100%;
   position: absolute;
   left: 9%;
   top: 0;
@@ -1095,7 +1094,7 @@ button.btn-gr.btn-sm {
 
 .listroadMap li {
   padding: 0 0 10px 35px;
-  background: url('./../images/arrowYellow.svg') no-repeat scroll 0 7px/17px;
+  background: url('../images/arrowYellow.svg') no-repeat scroll 0 7px/17px;
   font-size: 20px;
   line-height: 25px;
   color: #00284e;
@@ -1109,6 +1108,16 @@ button.btn-gr.btn-sm {
   line-height: 18px;
   color: rgba(255, 255, 255, 0.48);
   font-family: 'muliregular';
+}
+
+.sec_8 {
+  padding: 100px 0;
+  background: linear-gradient(252deg, #118fef 0%, #5e19ff 100%);
+}
+
+.sec_8 img {
+  width: 123px;
+  height: 144px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -1197,6 +1206,10 @@ button.btn-gr.btn-sm {
     font-size: 24px;
     line-height: 36px;
   }
+  .sec_8 img {
+    width: 83px;
+    height: 94px;
+  }
 }
 
 @media screen and (max-width: 1199px) {
@@ -1238,9 +1251,6 @@ button.btn-gr.btn-sm {
   .sec_4 .yellowBox {
     padding: 30px;
   }
-}
-
-@media screen and (max-width: 991px) {
   .navbar-brand img {
     width: 150px;
   }
@@ -1256,6 +1266,9 @@ button.btn-gr.btn-sm {
     z-index: 222;
     padding: 15px;
   }
+}
+
+@media screen and (max-width: 991px) {
   .bnr_text {
     margin-top: 30%;
   }
@@ -1306,6 +1319,9 @@ button.btn-gr.btn-sm {
   }
   .sec_4 .col-lg-7 {
     padding: 60px 15px 60px 15px;
+  }
+  .sec_8 {
+    padding: 60px 0;
   }
 }
 
@@ -1461,4 +1477,57 @@ button.btn-gr.btn-sm {
 
 .unstake:hover {
   color: #ff9539;
+}
+
+/**/
+
+.box2 .link.link1 {
+  bottom: 60px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.rd_checkbox {
+  line-height: 18px;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.rd_checkbox input {
+  display: none;
+}
+
+.rd_checkbox input:checked + span:before {
+  background: url('../images/check.png') no-repeat 0 0/18px;
+  border: none;
+}
+
+.rd_checkbox span:before {
+  content: '';
+  border: 1px solid #000;
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.selectBtns .inModal .button {
+  margin: 10px 5px;
+}
+
+@media (min-width: 992px) {
+  .modal-lg.mx-740 {
+    max-width: 740px;
+  }
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
 }

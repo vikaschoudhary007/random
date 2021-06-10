@@ -4,12 +4,15 @@ import GuessABI from '../Contract/GuessContract.json';
 import { firebaseinit } from '../FirebaseAuth';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
+import error from '../images/error.png';
+import success from '../images/success.png';
+import loader2 from '../images/loader2.png';
 
 const db = firebaseinit.database().ref('Binance');
 const userdb = firebaseinit.database().ref('Binance/Users');
 
-const TokenContractAddress = '0xb7Dd1510D1cD026784558C5A6cb46d12808E4cAF';
-const GuessContractAddress = '0x57e6a6FE5EFEe243D9C04Fe0D8144Ac3E3586B60';
+const TokenContractAddress = '0x806DF860d890C41E11594EB308320e4C91BbBBB3';
+const GuessContractAddress = '0x4C12891380aA597b010697213042C8960Bd947D9';
 const adminPublicKey = '0x435a4787Af28293934161F5e22f4F7368B10D2Af';
 
 /////////// CHECK IF BROWSER IS ENABLED WITH Web3 //////////////
@@ -194,11 +197,10 @@ const approveFunction = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -208,6 +210,9 @@ const approveFunction = async (
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
@@ -268,16 +273,19 @@ const approveFunction = async (
                 width: 400,
                 background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0%
                   0% no-repeat padding-box`,
-                iconColor: '#008080',
+
                 title: `<span style='color:white'>Transaction Successful</span>`,
                 showConfirmButton: true,
                 showCloseButton: false,
                 confirmButtonText: 'Close',
-                icon: 'success',
+
                 customClass: {
                   confirmButton: 'swal-button',
                 },
                 buttonsStyling: false,
+                imageUrl: `${success}`,
+                imageHeight: 80,
+                imageWidth: 80,
               });
               setShow(false);
             });
@@ -287,16 +295,19 @@ const approveFunction = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     setApproveValue(0);
     setShow(false);
@@ -321,16 +332,19 @@ const approveForAdminFunction = async (
       Swal.fire({
         width: 400,
         background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-        iconColor: '#AA4A44',
+
         title: `<span style='color:white'>Not Authorized</span>`,
         showConfirmButton: true,
         showCloseButton: false,
         confirmButtonText: 'Close',
-        icon: 'error',
+
         customClass: {
           confirmButton: 'swal-button',
         },
         buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
       });
       setShow(false);
       setApproveValue(0);
@@ -352,11 +366,11 @@ const approveForAdminFunction = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -366,6 +380,9 @@ const approveForAdminFunction = async (
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
@@ -425,16 +442,19 @@ const approveForAdminFunction = async (
               Swal.fire({
                 width: 400,
                 background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-                iconColor: '#008080',
+
                 title: `<span style='color:white'>Transaction Successful</span>`,
                 showConfirmButton: true,
                 showCloseButton: false,
                 confirmButtonText: 'Close',
-                icon: 'success',
+
                 customClass: {
                   confirmButton: 'swal-button',
                 },
                 buttonsStyling: false,
+                imageUrl: `${success}`,
+                imageHeight: 80,
+                imageWidth: 80,
               });
             });
           setShow(false);
@@ -444,16 +464,19 @@ const approveForAdminFunction = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     setApproveValue(0);
     setShow(false);
@@ -493,11 +516,11 @@ const stakeTokens = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -507,6 +530,9 @@ const stakeTokens = async (
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
@@ -569,16 +595,19 @@ const stakeTokens = async (
               Swal.fire({
                 width: 400,
                 background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-                iconColor: '#008080',
+
                 title: `<span style='color:white'>Transaction Successful</span>`,
                 showConfirmButton: true,
                 showCloseButton: false,
                 confirmButtonText: 'Close',
-                icon: 'success',
+
                 customClass: {
                   confirmButton: 'swal-button',
                 },
                 buttonsStyling: false,
+                imageUrl: `${success}`,
+                imageHeight: 80,
+                imageWidth: 80,
               });
               setShow(false);
             });
@@ -588,16 +617,19 @@ const stakeTokens = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     setStakeValue(0);
     setShow(false);
@@ -621,11 +653,11 @@ const chooseNumbers = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -635,6 +667,9 @@ const chooseNumbers = async (
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
@@ -730,7 +765,7 @@ const chooseNumbers = async (
       .update({
         date: new Date().toISOString().slice(0, 10),
         choosenNumber: dataArray,
-        type: 'CHOOSE NUMBER',
+        type: 'SELECTIONS',
       })
       .then(async () => {
         await userdb
@@ -742,16 +777,19 @@ const chooseNumbers = async (
             Swal.fire({
               width: 400,
               background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-              iconColor: '#008080',
+
               title: `<span style='color:white'>Transaction Successful</span>`,
               showConfirmButton: true,
               showCloseButton: false,
               confirmButtonText: 'Close',
-              icon: 'success',
+
               customClass: {
                 confirmButton: 'swal-button',
               },
               buttonsStyling: false,
+              imageUrl: `${success}`,
+              imageHeight: 80,
+              imageWidth: 80,
             }).then(() => {
               setSelectedGuesses([]);
               setCheckboxId(new Map());
@@ -762,16 +800,19 @@ const chooseNumbers = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
   }
 };
@@ -787,12 +828,12 @@ const unstakeTokens = async (guessContract, account) => {
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
 
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -802,6 +843,9 @@ const unstakeTokens = async (guessContract, account) => {
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
@@ -889,16 +933,19 @@ const unstakeTokens = async (guessContract, account) => {
               Swal.fire({
                 width: 400,
                 background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-                iconColor: '#008080',
+
                 title: `<span style='color:white'>Transaction Successful</span>`,
                 showConfirmButton: true,
                 showCloseButton: false,
                 confirmButtonText: 'Close',
-                icon: 'success',
+
                 customClass: {
                   confirmButton: 'swal-button',
                 },
                 buttonsStyling: false,
+                imageUrl: `${success}`,
+                imageHeight: 80,
+                imageWidth: 80,
               });
             });
         });
@@ -907,17 +954,220 @@ const unstakeTokens = async (guessContract, account) => {
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
+  }
+};
+
+/////////////////////////// STAGGERED UNSTAKE FUNCTION ////////////////////////
+
+const staggeredUnstake = async (guessContract, account, choosedArray) => {
+  try {
+    if (choosedArray.length === 0) {
+      Swal.fire({
+        width: 400,
+        background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+
+        title: `<span style='color:white'>please choose numbers to unstake</span>`,
+        showConfirmButton: true,
+        showCloseButton: false,
+
+        customClass: {
+          confirmButton: 'swal-button',
+        },
+        buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
+      });
+      return;
+    }
+
+    if (choosedArray.length > 100) {
+      Swal.fire({
+        width: 400,
+        background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+
+        title: `<span style='color:white'>Maxiumum 100 in one go</span>`,
+        showConfirmButton: true,
+        showCloseButton: false,
+
+        customClass: {
+          confirmButton: 'swal-button',
+        },
+        buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
+      });
+      return;
+    }
+
+    console.log(choosedArray);
+    await guessContract.methods
+      .staggeredUnstake(choosedArray)
+      .send({ from: account })
+      .on('transactionHash', async () => {
+        Swal.fire({
+          width: 400,
+          background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+
+          title: `<span style='color:white'>Transaction Processing...</span>`,
+
+          showConfirmButton: false,
+          showCloseButton: false,
+
+          customClass: {
+            confirmButton: 'swal-button',
+            loader: 'swal-loader',
+          },
+          allowOutsideClick: false,
+          buttonsStyling: false,
+          onOpen: () => {
+            Swal.showLoading();
+          },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
+        });
+      });
+
+    ///////////////////////////////////////////
+
+    await db.child('ChoosedArray').once('value', async (snapshot) => {
+      let array1;
+      let array2;
+      array1 = snapshot.val();
+
+      await userdb
+        .child(account)
+        .child('SelectedArray')
+        .once('value', async (snapshot) => {
+          array2 = snapshot.val();
+        });
+
+      array1 = await array1.filter((val) => !choosedArray.includes(val));
+      array2 = await array2.filter((val) => !choosedArray.includes(val));
+
+      await userdb
+        .child(account)
+        .update({
+          SelectedArray: array2,
+        })
+        .then(async () => {
+          await db.update({
+            ChoosedArray: array1,
+          });
+        });
+    });
+
+    ////////////////////////////////////////////
+
+    await userdb.once('value', async (snapshot) => {
+      const temp = snapshot.val();
+
+      let countValue;
+      if (temp == null) {
+        await userdb.child(account).child('Transactions').set({
+          count: 0,
+        });
+
+        await userdb
+          .child(account)
+          .child('Transactions/count')
+          .once('value', async (result) => {
+            countValue = result.val();
+          });
+      }
+      await userdb
+        .child(account)
+        .child('Transactions/count')
+        .once('value', async (result) => {
+          countValue = result.val();
+        });
+
+      if (countValue === null) {
+        await userdb.child(account).child('Transactions').set({
+          count: 0,
+        });
+
+        await userdb
+          .child(account)
+          .child('Transactions/count')
+          .once('value', async (result) => {
+            countValue = result.val();
+          });
+      }
+
+      await userdb
+        .child(account)
+        .child('Transactions')
+        .child(countValue)
+        .update({
+          date: new Date().toISOString().slice(0, 10),
+          choosenNumber: choosedArray,
+          stakingAmount: choosedArray.length * 100,
+          type: 'STAGGERED UNSTAKE',
+        })
+        .then(async () => {
+          await userdb
+            .child(account)
+            .child('Transactions')
+            .child('count')
+            .set(countValue + 1)
+            .then(() => {
+              Swal.fire({
+                width: 400,
+                background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+
+                title: `<span style='color:white'>Transaction Successful</span>`,
+                showConfirmButton: true,
+                showCloseButton: false,
+                confirmButtonText: 'Close',
+
+                customClass: {
+                  confirmButton: 'swal-button',
+                },
+                buttonsStyling: false,
+                imageUrl: `${success}`,
+                imageHeight: 80,
+                imageWidth: 80,
+              });
+            });
+        });
+    });
+  } catch (err) {
+    Swal.fire({
+      width: 400,
+      background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+
+      title: `<span style='color:white'>Oops! Something went wrong</span>`,
+      showConfirmButton: true,
+      showCloseButton: false,
+      confirmButtonText: 'Close',
+
+      customClass: {
+        confirmButton: 'swal-button',
+      },
+      buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
+    });
+
+    console.log(err);
   }
 };
 
@@ -934,15 +1184,18 @@ const guessRandomNumber = async (
       Swal.fire({
         width: 400,
         background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-        iconColor: '#AA4A44',
+
         title: `<span style='color:white'>Please enter seed first</span>`,
         showConfirmButton: true,
         showCloseButton: false,
-        icon: 'error',
+
         customClass: {
           confirmButton: 'swal-button',
         },
         buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
       });
       setSpeed('');
 
@@ -950,7 +1203,7 @@ const guessRandomNumber = async (
     }
 
     await guessContract.methods
-      .generateRandomNumber(userProvidedSeed)
+      .guessRandomNumber(userProvidedSeed)
       .send({
         from: account,
       })
@@ -958,12 +1211,12 @@ const guessRandomNumber = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
 
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -973,6 +1226,9 @@ const guessRandomNumber = async (
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
@@ -980,31 +1236,37 @@ const guessRandomNumber = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#008080',
+
       title: `<span style='color:white'>Transaction Successful</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'success',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${success}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
   } catch (err) {
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     await setSpeed('');
   }
@@ -1020,12 +1282,12 @@ const chooseWinner = async (guessContract, account) => {
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
 
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -1035,37 +1297,46 @@ const chooseWinner = async (guessContract, account) => {
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#008080',
+
       title: `<span style='color:white'>Transaction Successful</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'success',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${success}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
   } catch (err) {
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     console.log(err);
   }
@@ -1080,12 +1351,12 @@ const emitEveryWeekTokens = async (tokenContract, account) => {
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#4F94CD',
+
           title: `<span style='color:white'>Transaction Processing...</span>`,
 
           showConfirmButton: false,
           showCloseButton: false,
-          icon: 'info',
+
           customClass: {
             confirmButton: 'swal-button',
             loader: 'swal-loader',
@@ -1095,37 +1366,46 @@ const emitEveryWeekTokens = async (tokenContract, account) => {
           onOpen: () => {
             Swal.showLoading();
           },
+          imageUrl: `${loader2}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
       });
 
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#008080',
+
       title: `<span style='color:white'>Transaction Successful</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'success',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${success}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
   } catch (err) {
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
   }
 };
@@ -1142,6 +1422,12 @@ const lastRandomNumber = async (
   await setCheckRandomNumber(checkRandomNumber);
 };
 
+const isRandomNumberGenerated = async (guessContract, account) => {
+  const result = await guessContract.methods
+    .isRandomNumberGenerated()
+    .call({ from: account });
+};
+
 const pushWinnerNumber = async (
   winnerNumber,
   date,
@@ -1156,16 +1442,19 @@ const pushWinnerNumber = async (
       Swal.fire({
         width: 400,
         background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-        iconColor: '#AA4A44',
+
         title: `<span style='color:white'>Connect the admin wallet first</span>`,
         showConfirmButton: true,
         showCloseButton: false,
         confirmButtonText: 'Close',
-        icon: 'error',
+
         customClass: {
           confirmButton: 'swal-button',
         },
         buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
       });
       setShow(false);
       return;
@@ -1191,16 +1480,19 @@ const pushWinnerNumber = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0%0% no-repeat padding-box`,
-          iconColor: '#008080',
+
           title: `<span style='color:white'>Added Successfully</span>`,
           showConfirmButton: true,
           showCloseButton: false,
           confirmButtonText: 'Close',
-          icon: 'success',
+
           customClass: {
             confirmButton: 'swal-button',
           },
           buttonsStyling: false,
+          imageUrl: `${success}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
         setShow(false);
       });
@@ -1208,16 +1500,19 @@ const pushWinnerNumber = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     await setWinnerNumber('');
     await setDate('');
@@ -1240,16 +1535,19 @@ const editWinnerNumber = async (
       Swal.fire({
         width: 400,
         background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-        iconColor: '#AA4A44',
+
         title: `<span style='color:white'>Connect the admin wallet first</span>`,
         showConfirmButton: true,
         showCloseButton: false,
         confirmButtonText: 'Close',
-        icon: 'error',
+
         customClass: {
           confirmButton: 'swal-button',
         },
         buttonsStyling: false,
+        imageUrl: `${error}`,
+        imageHeight: 80,
+        imageWidth: 80,
       });
       setShow(false);
       return;
@@ -1282,16 +1580,19 @@ const editWinnerNumber = async (
         Swal.fire({
           width: 400,
           background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-          iconColor: '#008080',
+
           title: `<span style='color:white'>Changed Successfully</span>`,
           showConfirmButton: true,
           showCloseButton: false,
           confirmButtonText: 'Close',
-          icon: 'success',
+
           customClass: {
             confirmButton: 'swal-button',
           },
           buttonsStyling: false,
+          imageUrl: `${success}`,
+          imageHeight: 80,
+          imageWidth: 80,
         });
         setShow(false);
       });
@@ -1299,16 +1600,19 @@ const editWinnerNumber = async (
     Swal.fire({
       width: 400,
       background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
-      iconColor: '#AA4A44',
+
       title: `<span style='color:white'>Oops! Something went wrong</span>`,
       showConfirmButton: true,
       showCloseButton: false,
       confirmButtonText: 'Close',
-      icon: 'error',
+
       customClass: {
         confirmButton: 'swal-button',
       },
       buttonsStyling: false,
+      imageUrl: `${error}`,
+      imageHeight: 80,
+      imageWidth: 80,
     });
     await setWinnerValue('');
     await setDate('');
@@ -1333,4 +1637,6 @@ export {
   lastRandomNumber,
   pushWinnerNumber,
   editWinnerNumber,
+  isRandomNumberGenerated,
+  staggeredUnstake,
 };

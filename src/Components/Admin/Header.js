@@ -40,8 +40,8 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link yellow" to="/choose_number">
-                    Choose Number
+                  <Link className="nav-link yellow" to="/select_numbers">
+                    Select Numbers
                   </Link>
                 </li>
                 <li className="nav-item">

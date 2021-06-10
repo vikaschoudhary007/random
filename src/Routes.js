@@ -6,6 +6,7 @@ import ChooseNumberPage from './Pages/ChooseNumberPage';
 import AdminPage from './Pages/AdminPage';
 import { UserProvider } from './Context/UserContext';
 import Swal from 'sweetalert2';
+import logo from './images/warning.png';
 import {
   loadWeb3,
   loadBlockChainData,
@@ -53,12 +54,17 @@ export default function Routes() {
       accountDetails(account, userData, setUserData, setLoading);
     } else {
       Swal.fire({
-        title: 'Non-Ethereum browser detected',
-        text: 'You should consider MetaMask',
+        width: 400,
+        background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+        iconColor: '#4F94CD',
+        title: `<span style='color:white'>Non-Ethereum browser detected</span> `,
+        text: `You should consider MetaMask`,
         footer: `<a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en">Install MetaMask</a>`,
         showConfirmButton: false,
         showCloseButton: true,
-        icon: 'warning',
+        imageUrl: `${logo}`,
+        imageHeight: 80,
+        imageWidth: 80,
       });
     }
   }, []);
@@ -84,12 +90,17 @@ export default function Routes() {
       listenNetworkChange(setNetworkId);
     } else {
       Swal.fire({
-        title: 'Non-Ethereum browser detected',
-        text: 'You should consider MetaMask',
+        width: 400,
+        background: `transparent linear-gradient(135deg, #ff7519 0%, #118fef 100%) 0% 0% no-repeat padding-box`,
+        iconColor: '#4F94CD',
+        title: `<span style='color:white'>Non-Ethereum browser detected</span> `,
+        text: `You should consider MetaMask`,
         footer: `<a target="_blank" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en">Install MetaMask</a>`,
         showConfirmButton: false,
         showCloseButton: true,
-        icon: 'warning',
+        imageUrl: `${logo}`,
+        imageHeight: 80,
+        imageWidth: 80,
       });
     }
   };
@@ -122,7 +133,7 @@ export default function Routes() {
       <Router>
         <Switch>
           <Route exect path="/dashboard" component={DashboardPage} />
-          <Route exect path="/choose_number" component={ChooseNumberPage} />
+          <Route exect path="/select_numbers" component={ChooseNumberPage} />
           <Route exect path="/admin" component={AdminPage} />
           <Route exect path="/" component={LandingPage} />
         </Switch>
