@@ -253,7 +253,14 @@ export default function StaggeredModal({}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    staggeredUnstake(guessContract, account, choosedArray);
+    staggeredUnstake(
+      guessContract,
+      account,
+      choosedArray,
+      setUnstakeInput,
+      setChoosedArray,
+      setCheckboxId
+    );
   };
 
   const handleMaxButton = (e) => {

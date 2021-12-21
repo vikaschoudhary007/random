@@ -1001,7 +1001,14 @@ const unstakeTokens = async (guessContract, account) => {
 
 /////////////////////////// STAGGERED UNSTAKE FUNCTION ////////////////////////
 
-const staggeredUnstake = async (guessContract, account, choosedArray) => {
+const staggeredUnstake = async (
+  guessContract,
+  account,
+  choosedArray,
+  setUnstakeInput,
+  setChoosedArray,
+  setCheckboxId
+) => {
   try {
     if (choosedArray.length === 0) {
       Swal.fire({
@@ -1020,6 +1027,9 @@ const staggeredUnstake = async (guessContract, account, choosedArray) => {
         imageHeight: 80,
         imageWidth: 80,
       });
+      setUnstakeInput(0);
+      setChoosedArray([]);
+      setCheckboxId(new Map());
       return;
     }
 
@@ -1040,6 +1050,9 @@ const staggeredUnstake = async (guessContract, account, choosedArray) => {
         imageHeight: 80,
         imageWidth: 80,
       });
+      setUnstakeInput(0);
+      setChoosedArray([]);
+      setCheckboxId(new Map());
       return;
     }
 
@@ -1173,6 +1186,10 @@ const staggeredUnstake = async (guessContract, account, choosedArray) => {
                 imageHeight: 80,
                 imageWidth: 80,
               });
+
+              setUnstakeInput(0);
+              setChoosedArray([]);
+              setCheckboxId(new Map());
             });
         });
     });
@@ -1194,7 +1211,9 @@ const staggeredUnstake = async (guessContract, account, choosedArray) => {
       imageHeight: 80,
       imageWidth: 80,
     });
-
+    setUnstakeInput(0);
+    setChoosedArray([]);
+    setCheckboxId(new Map());
     console.log(err);
   }
 };
